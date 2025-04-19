@@ -74,48 +74,64 @@ body {
 
 .movie-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 20px 0;
 }
 
 .movie-card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  background-color: #fff;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .movie-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .movie-poster {
   width: 100%;
-  height: 200px;
+  height: 400px; /* Більше місця під повний постер */
   object-fit: cover;
+  object-position: center;
 }
 
 .movie-info {
-  padding: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .movie-title {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  color: #343a40;
 }
 
 .movie-description {
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  max-height: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .movie-genre,
 .movie-session {
   font-size: 14px;
-  color: #555;
+  color: #666;
+  margin-bottom: 6px;
 }
 
 @media (max-width: 768px) {
@@ -123,3 +139,4 @@ body {
     width: 90%;
   }
 }
+
