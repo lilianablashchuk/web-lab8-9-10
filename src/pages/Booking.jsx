@@ -1,9 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import CinemaHall from '../components/CinemaHall';
+import BookingForm from '../components/BookingForm'; 
+import { movies } from '../data/movies'; 
+import BookingService from '../services/BookingService'; 
 import './booking.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Booking = () => {
+  const { id } = useParams(); 
+  const movie = movies.find((m) => m.id.toString() === id);
+  
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const [userData, setUserData] = useState({ name: '', phone: '', email: '' });
+  const [formError, setFormError] = useState(null);
+  const [showForm, setShowForm] = useState(false);
+
+  useEffect(() => {
+    const savedSeats = BookingService.getBookedSeats(id);
+    setSelectedSeats(savedSeats.map((booking) => booking.selectedSeats).flat());
+  }, [id]);
 
   const handleSeatClick = (row, col) => {
     const seat = `${row + 1}-${col + 1}`;
@@ -14,12 +31,54 @@ const Booking = () => {
     );
   };
 
+  const validateForm = () => {
+    const { name, phone, email } = userData;
+    const emailRegex = /\S+@\S+\.\S+/;
+    if (!name || !phone || !email) {
+      setFormError('Усі поля є обов\'язковими');
+      return false;
+    }
+    if (!emailRegex.test(email)) {
+      setFormError('Невірний формат емейлу');
+      return false;
+    }
+    setFormError(null);
+    return true;
+  };
+
+  const handleBooking = () => {
+    if (validateForm()) {
+      BookingService.generateTicket(id, userData, selectedSeats);
+      toast.success('Бронювання успішно виконано!');
+      setSelectedSeats([]);
+      setUserData({ name: '', phone: '', email: '' });
+      setShowForm(false); 
+    }
+  };
+
+  if (!movie) {
+    return <p>Фільм не знайдено</p>;
+  }
+
   return (
     <div className="booking">
-      <h2>Бронювання місць</h2>
+      <h2>Бронювання місць для фільму:</h2>
+      <div className="movie-summary">
+        <img src={movie.poster} alt={movie.title} className="booking-movie-poster" />
+        <div className="booking-movie-info">
+          <h3>{movie.title}</h3>
+          <p><strong>Жанр:</strong> {movie.genre}</p>
+          <p><strong>Опис:</strong> {movie.description}</p>
+          <p><strong>Сеанс:</strong> {movie.date} {movie.time}</p>
+        </div>
+      </div>
+
       <div className="screen">Екран</div>
-      <CinemaHall selectedSeats={selectedSeats} handleSeatClick={handleSeatClick} />
-      
+      <CinemaHall
+        selectedSeats={selectedSeats}
+        handleSeatClick={handleSeatClick}
+      />
+
       <div className="selected-info">
         <h3>Обрані місця:</h3>
         {selectedSeats.length > 0 ? (
@@ -29,7 +88,23 @@ const Booking = () => {
         )}
       </div>
 
-      <button className="book-button">Забронювати</button>
+      {}
+      {selectedSeats.length > 0 && !showForm && (
+        <button onClick={() => setShowForm(true)} className="show-form-btn">
+          Перейти до форми бронювання
+        </button>
+      )}
+
+      {showForm && (
+        <BookingForm
+          userData={userData}
+          setUserData={setUserData}
+          handleBooking={handleBooking}
+          formError={formError}
+        />
+      )}
+
+      <ToastContainer />
     </div>
   );
 };
