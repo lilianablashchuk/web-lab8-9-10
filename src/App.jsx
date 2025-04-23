@@ -4,6 +4,7 @@ import { movies } from './data/movies';
 import MovieList from './components/MovieList';
 import Home from './pages/Home';
 import Booking from './pages/Booking';
+import Schedule from './pages/MovieSchedule'; 
 import './App.css';
 
 const App = () => {
@@ -24,7 +25,9 @@ const App = () => {
             <li>
               <Link to="/movies" className="nav-link">Фільми</Link>
             </li>
-            
+            <li>
+              <Link to="/schedule" className="nav-link">Розклад</Link> 
+            </li>
           </ul>
         </nav>
 
@@ -43,6 +46,7 @@ const App = () => {
           <Route path="/movies" element={<MovieList movies={filteredMovies} />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/booking/:id" element={<Booking />} />
+          <Route path="/schedule" element={<Schedule />} /> 
         </Routes>
       </div>
     </Router>

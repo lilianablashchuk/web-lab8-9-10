@@ -9,9 +9,8 @@ const Home = ({ movies }) => {
       <h1>Ласкаво просимо до кінопорталу!</h1>
       <p>Знайдіть найкращі фільми та забронюйте квитки!</p>
       <div className="home-buttons">
-        <Link to="/movies" className="home-button">🎟️ Забронювати квитки</Link>
         <Link to="/movies" className="home-button">🗓️ Переглянути розклад</Link>
-        <Link to="/booking" className="home-button">🎫 Забронювати місця</Link>
+        <Link to="/booking" className="home-button">🎫 Забронювати квитки</Link>
 
       </div>
 
