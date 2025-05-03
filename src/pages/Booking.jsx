@@ -13,17 +13,21 @@ const Booking = () => {
   const movie = movies.find((m) => m.id.toString() === id);
   
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const [bookedSeats, setBookedSeats] = useState([]);
   const [userData, setUserData] = useState({ name: '', phone: '', email: '' });
   const [formError, setFormError] = useState(null);
   const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     const savedSeats = BookingService.getBookedSeats(id);
-    setSelectedSeats(savedSeats.map((booking) => booking.selectedSeats).flat());
+    const allBookedSeats = savedSeats.flatMap((booking) => booking.selectedSeats);
+    setBookedSeats(allBookedSeats);
   }, [id]);
 
   const handleSeatClick = (row, col) => {
     const seat = `${row + 1}-${col + 1}`;
+    if (bookedSeats.includes(seat)) return;
+
     setSelectedSeats((prevSeats) =>
       prevSeats.includes(seat)
         ? prevSeats.filter((s) => s !== seat)
@@ -50,6 +54,7 @@ const Booking = () => {
     if (validateForm()) {
       BookingService.generateTicket(id, userData, selectedSeats);
       toast.success('Бронювання успішно виконано!');
+      setBookedSeats([...bookedSeats, ...selectedSeats]);
       setSelectedSeats([]);
       setUserData({ name: '', phone: '', email: '' });
       setShowForm(false); 
@@ -77,6 +82,7 @@ const Booking = () => {
       <CinemaHall
         selectedSeats={selectedSeats}
         handleSeatClick={handleSeatClick}
+        bookedSeats={bookedSeats}
       />
 
       <div className="selected-info">
@@ -88,7 +94,6 @@ const Booking = () => {
         )}
       </div>
 
-      {}
       {selectedSeats.length > 0 && !showForm && (
         <button onClick={() => setShowForm(true)} className="show-form-btn">
           Перейти до форми бронювання

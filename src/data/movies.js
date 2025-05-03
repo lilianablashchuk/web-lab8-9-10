@@ -60,7 +60,7 @@ export const movies = [
     genre: 'Фантастика, Бойовик',
     date: '2025-09-10',
     time: '22:00',
-    poster: 'https://example.com/matrix.jpg',
+    poster: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS530tChTweGZ5S4L171ePfubDbNVL4zu13zg&s',
   },
   {
     id: 8,
@@ -69,7 +69,7 @@ export const movies = [
     genre: 'Драма, Трилер',
     date: '2025-10-05',
     time: '18:00',
-    poster: 'https://example.com/parasite.jpg',
+    poster: 'https://upload.wikimedia.org/wikipedia/uk/8/84/Parasite_2019_poster.jpg',
   },
   {
     id: 9,
@@ -78,7 +78,7 @@ export const movies = [
     genre: 'Драма, Трилер, Кримінал',
     date: '2025-11-01',
     time: '20:00',
-    poster: 'https://example.com/joker.jpg',
+    poster: 'https://uakino.me/uploads/posts/2019-10/157147479435_joker.jpg',
   },
   {
     id: 10,
@@ -87,7 +87,7 @@ export const movies = [
     genre: 'Пригоди, Фентезі',
     date: '2025-12-15',
     time: '16:00',
-    poster: 'https://example.com/harrypotter.jpg',
+    poster: 'https://upload.wikimedia.org/wikipedia/uk/c/c5/%D0%93%D0%9F%D0%A4%D0%9A%D0%9F%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg',
   },
   {
     id: 11,
@@ -96,7 +96,7 @@ export const movies = [
     genre: 'Бойовик, Фантастика, Пригоди',
     date: '2025-08-15',
     time: '21:00',
-    poster: 'https://example.com/avengers.jpg',
+    poster: 'https://upload.wikimedia.org/wikipedia/uk/d/d4/%D0%9C%D0%B5%D1%81%D0%BD%D0%B8%D0%BA%D0%B8_%D0%97%D0%B0%D0%B2%D0%B5%D1%80%D1%88%D0%B5%D0%BD%D0%BD%D1%8F_%D0%94%D1%80%D1%83%D0%B3%D0%B8%D0%B9_%D0%9F%D0%BE%D1%81%D1%82%D0%B5%D1%80.png',
   },
   {
     id: 12,
@@ -105,7 +105,7 @@ export const movies = [
     genre: 'Мультфільм, Драма, Пригоди',
     date: '2025-09-30',
     time: '15:30',
-    poster: 'https://example.com/lionking.jpg',
+    poster: 'https://upload.wikimedia.org/wikipedia/ru/6/62/Lion_king_ver1.jpg',
   },
   {
     id: 13,
@@ -114,7 +114,7 @@ export const movies = [
     genre: 'Біографія, Драма',
     date: '2025-10-12',
     time: '19:30',
-    poster: 'https://example.com/socialnetwork.jpg',
+    poster: 'https://upload.wikimedia.org/wikipedia/uk/d/d1/%D0%A1%D0%BE%D1%86%D1%96%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0_%D0%BC%D0%B5%D1%80%D0%B5%D0%B6%D0%B0_%D1%84%D1%96%D0%BB%D1%8C%D0%BC_2010.jpg',
   },
   {
     id: 14,
@@ -123,7 +123,7 @@ export const movies = [
     genre: 'Фентезі, Пригоди',
     date: '2025-11-20',
     time: '18:30',
-    poster: 'https://example.com/lotr.jpg',
+    poster: 'https://upload.wikimedia.org/wikipedia/uk/0/0c/The_Fellowship_Of_The_Ring.jpg',
   },
   {
     id: 15,
@@ -132,7 +132,7 @@ export const movies = [
     genre: 'Драма, Романтика',
     date: '2025-12-25',
     time: '20:30',
-    poster: 'https://example.com/titanic.jpg',
+    poster: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwD7b_p_4s1E0NNXAwsTQ4guf3BmpjMRi7gQ&s',
   },
 ];
 
