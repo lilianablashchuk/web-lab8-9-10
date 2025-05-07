@@ -19,7 +19,7 @@ export const movies = [
     time: '21:30',
     poster: 'https://upload.wikimedia.org/wikipedia/uk/8/8a/Dark_Knight.jpg',
     trailer: 'https://www.youtube.com/embed/EXeTwQWrcwY',
-    hall: 2
+    hall: 1
   },
   {
     id: 3,
@@ -107,7 +107,7 @@ export const movies = [
     time: '16:00',
     poster: 'https://upload.wikimedia.org/wikipedia/uk/c/c5/%D0%93%D0%9F%D0%A4%D0%9A%D0%9F%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg',
     trailer: 'https://www.youtube.com/embed/l91Km49W9qI',
-    hall: 1
+    hall: 4
   },
   {
     id: 11,
@@ -151,6 +151,6 @@ export const movies = [
     time: '20:45',
     poster: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwD7b_p_4s1E0NNXAwsTQ4guf3BmpjMRi7gQ&s',
     trailer: 'https://www.youtube.com/embed/kVrqfYjkTdQ',
-    hall: 4
+    hall: 2
   }
 ];
