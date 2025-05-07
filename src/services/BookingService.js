@@ -47,7 +47,7 @@ const BookingService = {
     doc.text(`Email: ${userData.email}`, 10, 80);
     doc.text(`Selected Seats: ${selectedSeats.join(', ')}`, 10, 90);
 
-    const qrUrl = `https://localhost:3000/movie/${movieId}`;
+    const qrUrl = `https://www6.f2movies.to/home`;
     try {
       const qrCodeDataUrl = await QRCode.toDataURL(qrUrl, { width: 100 });
       doc.addImage(qrCodeDataUrl, 'PNG', 150, 30, 50, 50);

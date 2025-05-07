@@ -97,7 +97,7 @@ const Booking = () => {
       </div>
 
       {selectedSeats.length > 0 && !showForm && (
-        <button onClick={() => setShowForm(true)} className="show-form-btn">
+        <button onClick={() => setShowForm(true)} className="home-button">
           Перейти до форми бронювання
         </button>
       )}

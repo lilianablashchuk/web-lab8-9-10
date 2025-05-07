@@ -2,15 +2,14 @@ import React from 'react';
 import '../pages/booking.css';
 
 const hallLayouts = {
-  1: { rows: 10, cols: 12 }, 
+  1: { rows: 9, cols: 8 }, 
   2: { rows: 6, cols: 8 },  
-  3: { rows: 12, cols: 15 }, 
-  4: { rows: 5, cols: 6 }    
+  3: { rows: 12, cols: 8 }, 
+  4: { rows: 5, cols: 8 }    
 };
 
 const CinemaHall = ({ hallId, selectedSeats, handleSeatClick, bookedSeats }) => {
   const { rows, cols } = hallLayouts[hallId] || { rows: 5, cols: 8 }; 
-
   const validSelectedSeats = Array.isArray(selectedSeats) ? selectedSeats : [];
   const validBookedSeats = Array.isArray(bookedSeats) ? bookedSeats : [];
 
