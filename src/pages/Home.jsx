@@ -22,7 +22,7 @@ const Home = ({ movies }) => {
   
         <div className="home-buttons">
           <Link to="/schedule" className="home-button">🗓️ Переглянути розклад</Link>
-          <Link to="/booking" className="home-button">🎫 Забронювати квитки</Link>
+          <Link to="/movies" className="home-button">🎫 Забронювати квитки</Link>
         </div>
       </div>
   

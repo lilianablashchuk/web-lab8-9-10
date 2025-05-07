@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; 
 import { movies } from '../data/movies'; 
 import './MoviesSchedule.css'; 
 
@@ -26,11 +27,7 @@ const MoviesSchedule = () => {
   }, {});
 
   const handlePosterClick = (movieId) => {
-    if (activePoster === movieId) {
-      setActivePoster(null); 
-    } else {
-      setActivePoster(movieId); 
-    }
+    setActivePoster((prev) => (prev === movieId ? null : movieId));
   };
 
   return (
@@ -43,18 +40,25 @@ const MoviesSchedule = () => {
             <div className="movies-list">
               {groupByTime[time].map((movie) => (
                 <div className="movie-item" key={movie.id}>
-                  <div className="movie-info">
-                    <div className="movie-details">
-                    </div>
+                  <div className="movie-columns">
                     <div 
                       className={`movie-poster-container ${activePoster === movie.id ? 'active' : ''}`} 
                       onClick={() => handlePosterClick(movie.id)}
                     >
-                      <img src={movie.poster} alt={`Постер фільму ${movie.title}`} className="movie-poster" />
+                      <img 
+                        src={movie.poster} 
+                        alt={`Постер фільму ${movie.title}`} 
+                        className="movie-poster" 
+                      />
                       <div className="movie-details-overlay">
                         <h4>{movie.title}</h4>
                         <p>{movie.description}</p>
                       </div>
+                    </div>
+                    <div className="movie-hall-column">
+                      <p className="cinema-room">Кінозал: {movie.hall}</p>
+                      <p className="cinema-room">Час: {movie.time}</p>
+                      <Link to={`/booking/${movie.id}`} className="home-button">Забронювати квиток</Link>
                     </div>
                   </div>
                 </div>

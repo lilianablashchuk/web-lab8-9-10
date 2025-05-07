@@ -80,10 +80,12 @@ const Booking = () => {
 
       <div className="screen">Екран</div>
       <CinemaHall
-        selectedSeats={selectedSeats}
-        handleSeatClick={handleSeatClick}
-        bookedSeats={bookedSeats}
-      />
+  hallId={movie.hall}
+  selectedSeats={selectedSeats}
+  handleSeatClick={handleSeatClick}
+  bookedSeats={bookedSeats}
+/>
+
 
       <div className="selected-info">
         <h3>Обрані місця:</h3>
