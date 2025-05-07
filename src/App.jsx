@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react
 import { movies } from './data/movies';
 import MovieList from './components/MovieList';
 import Home from './pages/Home';
-import Halls from './components/Halls';
+import Halls from './pages/Halls';
 import Booking from './pages/Booking';
 import Schedule from './pages/MovieSchedule';
+import MovieDetails from './components/Movie';
 import './App.css';
 
 const AppContent = () => {
@@ -47,6 +48,7 @@ const AppContent = () => {
         <Route path="/booking/:id" element={<Booking />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/halls" element={<Halls />} />
+        <Route path="/movie-details/:movieId" component={MovieDetails} />
       </Routes>
     </div>
   );

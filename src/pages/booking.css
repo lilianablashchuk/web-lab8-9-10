@@ -146,3 +146,10 @@ input:focus {
   font-size: 14px;
   margin-top: 8px;
 }
+
+.seat.booked {
+  background-color: #444;
+  color: #999;
+  cursor: not-allowed;
+  border-color: #555;
+}
