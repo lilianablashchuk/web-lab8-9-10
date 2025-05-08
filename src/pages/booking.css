@@ -65,7 +65,6 @@
 }
 
 
-
 .seat {
   width: 32px;
   height: 32px;
@@ -137,7 +136,7 @@ input:focus {
   border-color: #8d32ce;
 }
 
-.error-message {
+.error {
   color: #6622c6;
   font-size: 14px;
   margin-top: 8px;

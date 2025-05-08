@@ -86,7 +86,6 @@ const Booking = () => {
   bookedSeats={bookedSeats}
 />
 
-
       <div className="selected-info">
         <h3>Обрані місця:</h3>
         {selectedSeats.length > 0 ? (
